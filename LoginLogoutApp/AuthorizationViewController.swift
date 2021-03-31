@@ -82,7 +82,7 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
             passwordTF.becomeFirstResponder()
         } else if textField == passwordTF {
             passwordTF.resignFirstResponder()
-            checkUsernameAndPassword()
+            logInBtnPressed()
             performSegue(withIdentifier: "logInIdentifier", sender: .none)
         }
         return true
