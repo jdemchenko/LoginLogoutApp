@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="rZS-IU-8Hp">
-                                <rect key="frame" x="20" y="281" width="374" height="224"/>
+                                <rect key="frame" x="20" y="337" width="374" height="222"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="y3s-pN-2n3">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="94"/>
@@ -35,16 +35,19 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-mA-eTp">
-                                        <rect key="frame" x="158.5" y="126" width="57" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Log In"/>
+                                        <rect key="frame" x="0.0" y="126" width="374" height="34"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="logInBtnPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="C0Z-HH-tdj"/>
                                             <segue destination="Jy9-0v-QFy" kind="presentation" identifier="logInIdentifier" modalPresentationStyle="fullScreen" id="s5K-lB-HeO"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="Pfe-bq-lF9">
-                                        <rect key="frame" x="32" y="194" width="310" height="30"/>
+                                        <rect key="frame" x="32" y="192" width="310" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgH-9S-x5D">
                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
@@ -67,6 +70,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="y3s-pN-2n3" secondAttribute="trailing" id="Gzq-fK-c1u"/>
+                                    <constraint firstItem="Y1A-mA-eTp" firstAttribute="height" secondItem="xoj-3E-bZG" secondAttribute="height" id="Irc-MI-1gh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y1A-mA-eTp" secondAttribute="trailing" id="Uj1-0G-4QM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -75,13 +80,14 @@
                         <constraints>
                             <constraint firstItem="rZS-IU-8Hp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4oU-EP-uBp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rZS-IU-8Hp" secondAttribute="trailing" constant="20" id="G4I-wi-08d"/>
-                            <constraint firstItem="rZS-IU-8Hp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-55" id="ojQ-6j-FJH"/>
+                            <constraint firstItem="rZS-IU-8Hp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ojQ-6j-FJH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="forgotPasswordBtn" destination="qRh-Ib-ltO" id="iHi-Wm-DRg"/>
                         <outlet property="forgotUserNameBtn" destination="RgH-9S-x5D" id="jtn-FR-BAP"/>
                         <outlet property="logInBtn" destination="Y1A-mA-eTp" id="cIq-lB-Faf"/>
+                        <outlet property="logInStackView" destination="rZS-IU-8Hp" id="9df-VA-1bC"/>
                         <outlet property="passwordTF" destination="xoj-3E-bZG" id="wjz-Is-baJ"/>
                         <outlet property="userNameTF" destination="D7D-lF-k8L" id="sZa-nC-cSB"/>
                     </connections>
@@ -147,6 +153,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,6 +11,7 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IB Outlets
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var logInStackView: UIStackView!
     
     @IBOutlet weak var logInBtn: UIButton!
     @IBOutlet weak var forgotUserNameBtn: UIButton!
@@ -25,6 +26,9 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userNameTF.delegate = self
         passwordTF.delegate = self
+        
+        logInBtn.layer.cornerRadius = 5
+        
         autoShrinkForButton(button: forgotUserNameBtn)
         autoShrinkForButton(button: forgotPasswordBtn)
         autoShrinkForButton(button: logInBtn)
@@ -55,6 +59,17 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Public Methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.logInStackView.frame = CGRect(x:self.logInStackView.frame.origin.x, y:self.logInStackView.frame.origin.y - 60, width:self.logInStackView.frame.size.width, height:self.logInStackView.frame.size.height)
+        })
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.logInStackView.frame = CGRect(x:self.logInStackView.frame.origin.x, y:self.logInStackView.frame.origin.y + 60, width:self.logInStackView.frame.size.width, height:self.logInStackView.frame.size.height)
+        })
+    }
+    
     func autoShrinkForButton(button: UIButton) {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.numberOfLines = 1
