@@ -139,8 +139,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXB-Q5-soC">
-                                <rect key="frame" x="321" y="64" width="66" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="323" y="64" width="62" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutBtnPressed" destination="Jy9-0v-QFy" eventType="touchUpInside" id="ncq-UQ-LBS"/>
