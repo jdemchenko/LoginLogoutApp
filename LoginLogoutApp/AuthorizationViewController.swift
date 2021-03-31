@@ -11,6 +11,11 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IB Outlets
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
+    @IBOutlet weak var logInBtn: UIButton!
+    @IBOutlet weak var forgotUserNameBtn: UIButton!
+    @IBOutlet weak var forgotPasswordBtn: UIButton!
+    
     // MARK: - Private Properties
     private let userName = "user"
     private let password = "password"
@@ -20,6 +25,9 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userNameTF.delegate = self
         passwordTF.delegate = self
+        autoShrinkForButton(button: forgotUserNameBtn)
+        autoShrinkForButton(button: forgotPasswordBtn)
+        autoShrinkForButton(button: logInBtn)
     }
     // Метод для скрытия клавиатуры тапом по экрану
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,6 +55,12 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Public Methods
+    func autoShrinkForButton(button: UIButton) {
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.numberOfLines = 1
+        button.titleLabel?.minimumScaleFactor = 0.5
+        button.clipsToBounds = true
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {//delegate method
         if textField == userNameTF {
@@ -58,6 +72,7 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
     // MARK: - Private Methods
     private func checkUsernameAndPassword() {
         if userNameTF.text != userName {

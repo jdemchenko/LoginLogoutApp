@@ -17,26 +17,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="rZS-IU-8Hp">
-                                <rect key="frame" x="34.5" y="333" width="345" height="230"/>
+                                <rect key="frame" x="34.5" y="336" width="345" height="224"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-lF-k8L">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="rUI-GC-LAf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xoj-3E-bZG">
-                                        <rect key="frame" x="0.0" y="66" width="345" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="2Cj-hW-eg8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="y3s-pN-2n3">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="94"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-lF-k8L">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xoj-3E-bZG">
+                                                <rect key="frame" x="0.0" y="60" width="345" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-mA-eTp">
-                                        <rect key="frame" x="144" y="132" width="57" height="36"/>
+                                        <rect key="frame" x="144" y="126" width="57" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
@@ -44,8 +43,8 @@
                                             <segue destination="Jy9-0v-QFy" kind="presentation" identifier="logInIdentifier" modalPresentationStyle="fullScreen" id="s5K-lB-HeO"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="Pfe-bq-lF9">
-                                        <rect key="frame" x="20.5" y="200" width="304" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="Pfe-bq-lF9">
+                                        <rect key="frame" x="17.5" y="194" width="310" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgH-9S-x5D">
                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
@@ -56,7 +55,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRh-Ib-ltO">
-                                                <rect key="frame" x="181" y="0.0" width="123" height="30"/>
+                                                <rect key="frame" x="181" y="0.0" width="129" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Forgot password?"/>
                                                 <connections>
@@ -66,28 +65,28 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="D7D-lF-k8L" firstAttribute="width" secondItem="rZS-IU-8Hp" secondAttribute="height" multiplier="179:422" constant="247.29146919431281" id="GeR-9E-Lsb"/>
-                                    <constraint firstItem="xoj-3E-bZG" firstAttribute="width" secondItem="rZS-IU-8Hp" secondAttribute="height" multiplier="179:422" constant="247.29146919431281" id="rwh-Xb-8qE"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rZS-IU-8Hp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4oU-EP-uBp"/>
+                            <constraint firstItem="y3s-pN-2n3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="25:65" id="RzS-EQ-Otp"/>
                             <constraint firstItem="rZS-IU-8Hp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="345:896" id="kX3-wd-awg"/>
                             <constraint firstItem="rZS-IU-8Hp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ojQ-6j-FJH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="forgotPasswordBtn" destination="qRh-Ib-ltO" id="iHi-Wm-DRg"/>
+                        <outlet property="forgotUserNameBtn" destination="RgH-9S-x5D" id="jtn-FR-BAP"/>
+                        <outlet property="logInBtn" destination="Y1A-mA-eTp" id="cIq-lB-Faf"/>
                         <outlet property="passwordTF" destination="xoj-3E-bZG" id="wjz-Is-baJ"/>
                         <outlet property="userNameTF" destination="D7D-lF-k8L" id="sZa-nC-cSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="78"/>
+            <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
         </scene>
         <!--In App View Controller-->
         <scene sceneID="ihR-Vk-wCp">
