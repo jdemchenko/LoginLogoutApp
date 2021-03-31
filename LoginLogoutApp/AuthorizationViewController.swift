@@ -17,7 +17,7 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     
     // MARK: - Private Properties
-    private let userName = "user"
+    private let userName = "lex.efimov"
     private let password = "password"
     
     // MARK: - Override Methods
