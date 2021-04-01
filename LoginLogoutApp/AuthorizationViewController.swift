@@ -59,14 +59,15 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Public Methods
+    // MARK: - Public Methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.logInStackView.frame = CGRect(x:self.logInStackView.frame.origin.x, y:self.logInStackView.frame.origin.y - 90, width:self.logInStackView.frame.size.width, height:self.logInStackView.frame.size.height)
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 90, width:self.view.frame.size.width, height:self.view.frame.size.height)
         })
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.logInStackView.frame = CGRect(x:self.logInStackView.frame.origin.x, y:self.logInStackView.frame.origin.y + 90, width:self.logInStackView.frame.size.width, height:self.logInStackView.frame.size.height)
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 90, width:self.view.frame.size.width, height:self.view.frame.size.height)
         })
     }
     
