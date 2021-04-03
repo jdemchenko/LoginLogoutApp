@@ -17,9 +17,5 @@ class InAppViewController: UIViewController {
         super.viewDidLoad()
         userNameLabel.text = userName
     }
-    // MARK: - IB Action
-    @IBAction func logoutBtnPressed() {
-        dismiss(animated: true)
-    }
     
 }

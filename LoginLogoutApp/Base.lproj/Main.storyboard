@@ -44,11 +44,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cGj-nz-zfG"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xoj-3E-bZG">
                                                 <rect key="frame" x="0.0" y="60" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oT0-Zu-7dc"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -72,15 +78,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Forgot user name?"/>
                                                 <connections>
-                                                    <action selector="forgotUserNamePresser" destination="BYZ-38-t0r" eventType="touchUpInside" id="ylO-kD-EjL"/>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sqQ-5n-ekX"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRh-Ib-ltO">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRh-Ib-ltO">
                                                 <rect key="frame" x="181" y="0.0" width="129" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Forgot password?"/>
                                                 <connections>
-                                                    <action selector="forgotPasswordPresser" destination="BYZ-38-t0r" eventType="touchUpInside" id="lVU-EJ-5ZL"/>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDx-MZ-NOb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -144,7 +150,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logoutBtnPressed" destination="Jy9-0v-QFy" eventType="touchUpInside" id="ncq-UQ-LBS"/>
                                     <segue destination="FzS-qv-SgK" kind="unwind" unwindAction="unwindFor:" id="XBS-al-VXK"/>
                                 </connections>
                             </button>

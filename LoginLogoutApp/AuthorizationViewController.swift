@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthorizationViewController: UIViewController, UITextFieldDelegate {
+class AuthorizationViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -18,14 +18,12 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     
     // MARK: - Private Properties
-    private let userName = "lex.efimov"
+    private let userName = "jdemchenko"
     private let password = "password"
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameTF.delegate = self
-        passwordTF.delegate = self
         
         logInBtn.layer.cornerRadius = 5
         
@@ -33,33 +31,31 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         autoShrinkForButton(button: forgotPasswordBtn)
         autoShrinkForButton(button: logInBtn)
     }
-    // Метод для скрытия клавиатуры тапом по экрану
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
+    
+    
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? InAppViewController else { return }
         destination.userName = userNameTF.text
     }
     
     // MARK: - IB Actions
-    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.source is InAppViewController else { return }
-        userNameTF.text = ""
-        passwordTF.text = ""
-    }
     @IBAction func logInBtnPressed() {
         checkUsernameAndPassword()
     }
-    @IBAction func forgotUserNamePresser() {
-        showAlert(title: "Don't worry!", message: "Your username is \(userName)")
-    }
-    @IBAction func forgotPasswordPresser() {
-        showAlert(title: "Don't worry!", message: "Your password is \(password)")
+    
+    @IBAction func forgotRegisterData(_ sender: UIButton) {
+        sender.tag == 0
+            ? showAlert(title: "Don't worry!", message: "Your username is \(userName)")
+            : showAlert(title: "Don't worry!", message: "Your password is \(password)")
     }
     
-    // MARK: - Public Methods
-    // MARK: - Public Methods
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+        userNameTF.text = nil
+        passwordTF.text = nil
+    }
+    
+    // MARK: - Up the view when keyboard up
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
             self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 90, width:self.view.frame.size.width, height:self.view.frame.size.height)
@@ -71,6 +67,7 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    // MARK: - Change size of buttons foe differents screens
     func autoShrinkForButton(button: UIButton) {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.numberOfLines = 1
@@ -78,36 +75,43 @@ class AuthorizationViewController: UIViewController, UITextFieldDelegate {
         button.clipsToBounds = true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {//delegate method
-        if textField == userNameTF {
-            passwordTF.becomeFirstResponder()
-        } else if textField == passwordTF {
-            passwordTF.resignFirstResponder()
-            logInBtnPressed()
-            performSegue(withIdentifier: "logInIdentifier", sender: .none)
-        }
-        return true
-    }
     
     // MARK: - Private Methods
     private func checkUsernameAndPassword() {
-        if userNameTF.text != userName {
-            showAlert(title: "Error", message: "The username you entered doesn't appear to belong to an account.\n Please check your username and try again.")
-        } else if passwordTF.text != password {
-            showAlert(title: "Error", message: "The password you entered doesn't appear to belong to an account.\n Please check your password and try again.")
-            passwordTF.text = ""
+        if userNameTF.text != userName || passwordTF.text != password {
+            showAlert(title: "Error", message: "The username or password is incorrect. Please check your username and password and try again.")
+            passwordTF.text = nil
+            return
         }
+        performSegue(withIdentifier: "logInIdentifier", sender: .none)
     }
-    
 }
 
 
-// MARK: - Table View Data Source
+// MARK: - Alert Controller
 extension AuthorizationViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+// MARK: - Work with keyboard
+extension AuthorizationViewController: UITextFieldDelegate {
+    // Метод для скрытия клавиатуры тапом по экрану
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {//delegate method
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logInBtnPressed()
+        }
+        return true
     }
 }
