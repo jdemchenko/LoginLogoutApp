@@ -21,6 +21,8 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoOfUser.layer.cornerRadius = photoOfUser.frame.size.width / 2
+        photoOfUser.clipsToBounds = true
         photoOfUser.image = UIImage.init(named: photoName!)
         
         textAbout.text =
