@@ -41,22 +41,17 @@ class AuthorizationViewController: UIViewController {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? InAppViewController {
-                welcomeVC.userName = user.person.name + " " + user.person.surname
-                
-            }   else if let navigationVC = viewController as? UINavigationController {
-               if let aboutUserVC = navigationVC.topViewController as? AboutViewController{
-                aboutUserVC.photoName = user.person.photo
-                aboutUserVC.name = user.person.name
-                aboutUserVC.surname = user.person.surname
-                aboutUserVC.hobby = user.person.hobby
-                aboutUserVC.age = user.person.age
-                aboutUserVC.nationality = user.person.nationality
+                welcomeVC.personData = user.person
+            } else if let navigationVC = viewController as? UINavigationController {
+                if let aboutUserVC = navigationVC.topViewController as? AboutViewController{
+                    aboutUserVC.personDataOfUser = user.person
                 }
                 if let linksOfUserVC = navigationVC.topViewController as? LinksViewController{
-                linksOfUserVC.links = user.person.links
+                    linksOfUserVC.links = user.person.links
                 }
             }
         }
+        
     }
     
     // MARK: - IB Actions

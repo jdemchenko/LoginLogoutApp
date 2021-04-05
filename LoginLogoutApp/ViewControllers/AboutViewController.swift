@@ -12,25 +12,20 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var textAbout: UILabel!
     @IBOutlet weak var photoOfUser: UIImageView!
     
-    var name: String!
-    var surname: String!
-    var hobby: String!
-    var age: Int!
-    var nationality: String!
-    var photoName: String!
+    var personDataOfUser: Person!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photoOfUser.layer.cornerRadius = photoOfUser.frame.size.width / 2
         photoOfUser.clipsToBounds = true
-        photoOfUser.image = UIImage.init(named: photoName!)
+        photoOfUser.image = UIImage.init(named: personDataOfUser.photo)
         
         textAbout.text =
-            "Name: \(name!)\n" +
-            "Surname: \(surname!)\n" +
-            "Age: \(age!)\n" +
-            "Hobby: \(hobby!)\n" +
-            "Nationality: \(nationality!)"
+            "Name: \(personDataOfUser.name)\n" +
+            "Surname: \(personDataOfUser.surname)\n" +
+            "Age: \(personDataOfUser.age)\n" +
+            "Hobby: \(personDataOfUser.hobby)\n" +
+            "Nationality: \(personDataOfUser.nationality)"
     }
     
 }

@@ -8,14 +8,14 @@
 import UIKit
 
 class InAppViewController: UIViewController {
-    // MARK: - IB Outlets
+
     @IBOutlet weak var userNameLabel: UILabel!
-    // MARK: - Public Properties
-    var userName: String!
-    // MARK: - Override Methods
+ 
+    var personData: Person!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameLabel.text = userName
+        userNameLabel.text = personData.name + "\n" + personData.surname
     }
     
 }
