@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAB702EF261A57DB001C2A25 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB702EE261A57DB001C2A25 /* User.swift */; };
+		FAB702F8261A62DA001C2A25 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB702F7261A62DA001C2A25 /* AboutViewController.swift */; };
+		FAB702FB261A74F4001C2A25 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB702FA261A74F4001C2A25 /* Alert.swift */; };
+		FAB70302261A85C5001C2A25 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB70301261A85C5001C2A25 /* LinksViewController.swift */; };
 		FAF398032614D6BF003E45B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398022614D6BF003E45B4 /* AppDelegate.swift */; };
 		FAF398052614D6BF003E45B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398042614D6BF003E45B4 /* SceneDelegate.swift */; };
 		FAF398072614D6BF003E45B4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398062614D6BF003E45B4 /* AuthorizationViewController.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FAB702EE261A57DB001C2A25 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAB702F7261A62DA001C2A25 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FAB702FA261A74F4001C2A25 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FAB70301261A85C5001C2A25 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		FAF397FF2614D6BF003E45B4 /* LoginLogoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginLogoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF398022614D6BF003E45B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF398042614D6BF003E45B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAB702E7261A55E0001C2A25 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAF398062614D6BF003E45B4 /* AuthorizationViewController.swift */,
+				FAF398182614DC5A003E45B4 /* InAppViewController.swift */,
+				FAB702F7261A62DA001C2A25 /* AboutViewController.swift */,
+				FAB70301261A85C5001C2A25 /* LinksViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FAB702E9261A5671001C2A25 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FAF398082614D6BF003E45B4 /* Main.storyboard */,
+				FAF3980D2614D6C0003E45B4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FAB702EA261A5695001C2A25 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				FAF398022614D6BF003E45B4 /* AppDelegate.swift */,
+				FAF398042614D6BF003E45B4 /* SceneDelegate.swift */,
+				FAF398102614D6C0003E45B4 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		FAB702EC261A56A7001C2A25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAF3980B2614D6C0003E45B4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAB702F3261A57F6001C2A25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAB702EE261A57DB001C2A25 /* User.swift */,
+				FAB702FA261A74F4001C2A25 /* Alert.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FAF397F62614D6BF003E45B4 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +113,11 @@
 		FAF398012614D6BF003E45B4 /* LoginLogoutApp */ = {
 			isa = PBXGroup;
 			children = (
-				FAF398022614D6BF003E45B4 /* AppDelegate.swift */,
-				FAF398042614D6BF003E45B4 /* SceneDelegate.swift */,
-				FAF398062614D6BF003E45B4 /* AuthorizationViewController.swift */,
-				FAF398082614D6BF003E45B4 /* Main.storyboard */,
-				FAF398182614DC5A003E45B4 /* InAppViewController.swift */,
-				FAF3980B2614D6C0003E45B4 /* Assets.xcassets */,
-				FAF3980D2614D6C0003E45B4 /* LaunchScreen.storyboard */,
-				FAF398102614D6C0003E45B4 /* Info.plist */,
+				FAB702E7261A55E0001C2A25 /* ViewControllers */,
+				FAB702F3261A57F6001C2A25 /* Models */,
+				FAB702E9261A5671001C2A25 /* Storyboards */,
+				FAB702EA261A5695001C2A25 /* Supporting */,
+				FAB702EC261A56A7001C2A25 /* Resources */,
 			);
 			path = LoginLogoutApp;
 			sourceTree = "<group>";
@@ -140,10 +192,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB702F8261A62DA001C2A25 /* AboutViewController.swift in Sources */,
 				FAF398072614D6BF003E45B4 /* AuthorizationViewController.swift in Sources */,
 				FAF398032614D6BF003E45B4 /* AppDelegate.swift in Sources */,
 				FAF398052614D6BF003E45B4 /* SceneDelegate.swift in Sources */,
+				FAB702EF261A57DB001C2A25 /* User.swift in Sources */,
+				FAB70302261A85C5001C2A25 /* LinksViewController.swift in Sources */,
 				FAF398192614DC5A003E45B4 /* InAppViewController.swift in Sources */,
+				FAB702FB261A74F4001C2A25 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +348,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3G9UZZBWW9;
-				INFOPLIST_FILE = LoginLogoutApp/Info.plist;
+				INFOPLIST_FILE = LoginLogoutApp/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3G9UZZBWW9;
-				INFOPLIST_FILE = LoginLogoutApp/Info.plist;
+				INFOPLIST_FILE = LoginLogoutApp/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

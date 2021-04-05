@@ -18,8 +18,8 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     
     // MARK: - Private Properties
-    private let userName = "jdemchenko"
-    private let password = "password"
+    private let user = User.getLogInInfo()
+    private let alert = Alert.getAlert()
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -33,10 +33,30 @@ class AuthorizationViewController: UIViewController {
     }
     
     
+    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? InAppViewController else { return }
-        destination.userName = userNameTF.text
+        let tabBarController = segue.destination as! UITabBarController
+        let viewControllers = tabBarController.viewControllers!
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? InAppViewController {
+                welcomeVC.userName = user.person.name + " " + user.person.surname
+                
+            }   else if let navigationVC = viewController as? UINavigationController {
+               if let aboutUserVC = navigationVC.topViewController as? AboutViewController{
+                aboutUserVC.photoName = user.person.photo
+                aboutUserVC.name = user.person.name
+                aboutUserVC.surname = user.person.surname
+                aboutUserVC.hobby = user.person.hobby
+                aboutUserVC.age = user.person.age
+                aboutUserVC.nationality = user.person.nationality
+                }
+                if let linksOfUserVC = navigationVC.topViewController as? LinksViewController{
+                linksOfUserVC.links = user.person.links
+                }
+            }
+        }
     }
     
     // MARK: - IB Actions
@@ -46,8 +66,10 @@ class AuthorizationViewController: UIViewController {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Don't worry!", message: "Your username is \(userName)")
-            : showAlert(title: "Don't worry!", message: "Your password is \(password)")
+            ? showAlert(title: "Don't worry!",
+                        message: "Your username is \(user.userName)")
+            : showAlert(title: "Don't worry!",
+                        message: "Your password is \(user.password)")
     }
     
     @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
@@ -55,17 +77,6 @@ class AuthorizationViewController: UIViewController {
         passwordTF.text = nil
     }
     
-    // MARK: - Up the view when keyboard up
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 90, width:self.view.frame.size.width, height:self.view.frame.size.height)
-        })
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 90, width:self.view.frame.size.width, height:self.view.frame.size.height)
-        })
-    }
     
     // MARK: - Change size of buttons foe differents screens
     func autoShrinkForButton(button: UIButton) {
@@ -78,8 +89,8 @@ class AuthorizationViewController: UIViewController {
     
     // MARK: - Private Methods
     private func checkUsernameAndPassword() {
-        if userNameTF.text != userName || passwordTF.text != password {
-            showAlert(title: "Error", message: "The username or password is incorrect. Please check your username and password and try again.")
+        if userNameTF.text != user.userName || passwordTF.text != user.password {
+            showAlert(title: alert.title, message: alert.message)
             passwordTF.text = nil
             return
         }
